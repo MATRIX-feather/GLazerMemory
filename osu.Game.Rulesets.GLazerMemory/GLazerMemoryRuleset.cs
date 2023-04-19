@@ -16,7 +16,6 @@ using osu.Game.Rulesets.GLazerMemory.Mods;
 using osu.Game.Rulesets.GLazerMemory.UI;
 using osu.Game.Rulesets.Mods;
 using osu.Game.Rulesets.UI;
-using osu.Game.Screens.LLin.Plugins.Internal.Gosumemory;
 using osuTK;
 using osuTK.Graphics;
 using GosuCompatInjector = osu.Game.Rulesets.GLazerMemory.Gosumemory.GosuCompatInjector;

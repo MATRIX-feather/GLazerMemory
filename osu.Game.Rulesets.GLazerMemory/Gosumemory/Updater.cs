@@ -55,18 +55,16 @@ namespace osu.Game.Rulesets.GLazerMemory.Gosumemory
             const BindingFlags flag = BindingFlags.Instance | BindingFlags.Static | BindingFlags.NonPublic;
             var screenStackField = game.GetType().GetFields(flag).FirstOrDefault(f => f.FieldType == typeof(OsuScreenStack));
 
-            if (screenStackField != null)
-            {
-                object? val = screenStackField.GetValue(game);
+            if (screenStackField == null) return;
 
-                if (val is OsuScreenStack osuScreenStack)
-                {
-                    this.screenStack = osuScreenStack;
+            object? val = screenStackField.GetValue(game);
 
-                    screenStack.ScreenExited += onScreenSwitch;
-                    screenStack.ScreenPushed += onScreenSwitch;
-                }
-            }
+            if (val is not OsuScreenStack osuScreenStack) return;
+
+            this.screenStack = osuScreenStack;
+
+            screenStack.ScreenExited += onScreenSwitch;
+            screenStack.ScreenPushed += onScreenSwitch;
         }
 
         [BackgroundDependencyLoader]
